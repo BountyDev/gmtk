@@ -1,0 +1,49 @@
+class Match():
+    def __init__(self, id1, id2, con1, con2):
+        self.x1 = 0
+        self.x2 = 0
+        self.y1 = 0
+        self.y2 = 0
+
+        self.hp1 = 100
+        self.hp2 = 100
+
+        self.gun1 = "default"
+        self.gun2 = "default"
+
+        self.id1 = id1
+        self.id2 = id2
+
+        self.con1 = con1
+        self.con2 = con2
+
+    def update(self, newx, newy, pn):
+        if pn == 0:
+            self.x2 = newx
+            self.y2 = newy
+        if pn == 1:
+            self.x1 = newx
+            self.x2 = newy
+
+    def list(self):
+        return [self.con1, self.con2]
+
+    def grab(self, pn):
+        if pn == 1:
+            return self.con1
+        if pn == 0:
+            return self.con2
+
+    def hit(self, pn):
+        if pn == 0:
+            self.hp1 -= 5
+            if self.hp1 <= 0:
+                return True
+            else:
+                return False
+        if pn == 1:
+            self.hp2 -= 5
+            if self.hp2 <= 0:
+                return True
+            else:
+                return False
