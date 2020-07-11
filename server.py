@@ -116,6 +116,7 @@ def server(port):
           dir = readint(mes)
           match = readint(mes)
           pn = readint(mes)
+          type = readstring(mes)
 
           cur = games["game" + str(match)]
 
@@ -126,6 +127,7 @@ def server(port):
           packet.write(3, xx)
           packet.write(3, yy)
           packet.write(3, dir)
+          packet.write(2, type)
           packet.send(send, packet)
 
     class MainServer(asyncore.dispatcher):
