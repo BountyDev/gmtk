@@ -56,6 +56,6 @@ class Match():
 
     def oth(self, pid):
         if pid == self.id1:
-            return self.conn2
+            return self.con2
         else:
-            return self.conn1
+            return self.con1
