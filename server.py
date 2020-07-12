@@ -204,7 +204,7 @@ def server(port):
             un.pop(player_id)
 
             for i in games:
-                check = i.check(player_id)
+                check = games[i].check(player_id)
 
                 if check:
                     packet = Packet()
