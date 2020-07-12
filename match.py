@@ -34,15 +34,15 @@ class Match():
         if pn == 0:
             return self.con2
 
-    def hit(self, pn):
+    def hit(self, pn, dmg):
         if pn == 0:
-            self.hp1 -= 5
+            self.hp1 -= dmg
             if self.hp1 <= 0:
                 return True
             else:
                 return False
         if pn == 1:
-            self.hp2 -= 5
+            self.hp2 -= dmg
             if self.hp2 <= 0:
                 return True
             else:

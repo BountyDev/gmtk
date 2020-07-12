@@ -102,6 +102,7 @@ def server(port):
       if arr[0] == "hit":
           game = readint(mes)
           pn = readint(mes)
+          hit = readint(mes)
 
           cur = games["game" + str(game)]
           chck = cur.hit(pn)
