@@ -13,7 +13,8 @@ def server(port):
     BS = 10024
     ids = {}
     conns = {}
-    global total = 0
+    global total
+    total = 0
     queue = []
     arr = {}
     games = {}
