@@ -13,8 +13,7 @@ def server(port):
     BS = 10024
     ids = {}
     conns = {}
-    global total
-    total = 0
+    total = {}
     queue = []
     arr = {}
     games = {}
@@ -90,7 +89,7 @@ def server(port):
               packet.clear()
               packet.write(2,"ping")
               packet.write(3, tm)
-              packet.write(3, total)
+              packet.write(3, total[0])
               packet.send(ids[pid], packet)
 
       if arr[0] == "leave":
@@ -204,7 +203,7 @@ def server(port):
         while newid in un:
             newid = random.randint(1,99999)
         playerid = newid
-        total+=1
+        total[0] +=1
         conns[conn] = playerid
         update = ['id update', playerid]
         ids[playerid] = conn
@@ -229,7 +228,7 @@ def server(port):
         if recievedData:
           rec(recievedData)
         else:
-            total-=1
+            total[0]-=1
             player_id = self.pi
             ids.pop(player_id)
             un.pop(player_id)
