@@ -103,18 +103,18 @@ def server(port):
           game = readint(mes)
           pn = readint(mes)
           hit = readint(mes)
-          print(hit)
-          cur = games["game" + str(game)]
-          chck = cur.hit(pn, hit)
+          if "game" + str(game) in games:
+              cur = games["game" + str(game)]
+              chck = cur.hit(pn, hit)
 
-          players = cur.list()
+              players = cur.list()
 
-         # if chck:
-            #  for i in players:
-            #      packet.clear()
-            #      packet.write(2, 'end')
-        #          packet.send(i, packet)
-        #      games.pop("game"+str(game))
+             # if chck:
+                #  for i in players:
+                #      packet.clear()
+                #      packet.write(2, 'end')
+            #          packet.send(i, packet)
+            #      games.pop("game"+str(game))
 
       if arr[0] == "end":
           game = readint(mes)
