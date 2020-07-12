@@ -78,10 +78,11 @@ def server(port):
 
       if arr[0] == "ping":
           pid = readint(mes)
+          tm = readint(mes)
 
           packet.clear()
           packet.write(2,"ping")
-          packet.write(3, time.time())
+          packet.write(3, tm)
           packet.send(ids[pid], packet)
 
       if arr[0] == "leave":
