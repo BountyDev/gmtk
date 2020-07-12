@@ -109,15 +109,15 @@ def server(port):
 
           players = cur.list()
 
-          if chck:
-              for i in players:
-                  packet.clear()
-                  packet.write(2, 'end')
-                  packet.send(i, packet)
-              games.pop("game"+str(game))
+         # if chck:
+            #  for i in players:
+            #      packet.clear()
+            #      packet.write(2, 'end')
+        #          packet.send(i, packet)
+        #      games.pop("game"+str(game))
 
       if arr[0] == "end":
-          game = readint()
+          game = readint(mes)
 
           cur = games["game" + str(game)]
 
@@ -130,6 +130,7 @@ def server(port):
           games.pop("game"+str(game))
 
       if arr[0] == "shoot":
+          print("W")
           xx = readint(mes)
           yy = readint(mes)
           dir = readint(mes)
