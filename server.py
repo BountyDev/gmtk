@@ -105,7 +105,7 @@ def server(port):
           hit = readint(mes)
 
           cur = games["game" + str(game)]
-          chck = cur.hit(pn)
+          chck = cur.hit(pn, hit)
 
           players = cur.list()
 
