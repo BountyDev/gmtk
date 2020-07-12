@@ -110,6 +110,22 @@ def server(port):
               packet.write(3, yy)
               packet.send(send, packet)
 
+      if arr[0] == "pickup":
+          match = readint(mes)
+          xx = readint(mes)
+          yy = readint(mes)
+          pid = readint(mes)
+
+          if "game"+str(match) in games:
+                cur = games["game" + str(match)]
+                send = cur.grab(pid)
+
+                packet.clear()
+                packet.write(2, 'pickup')
+                packet.write(3, xx)
+                packet.write(3, yy)
+                packet.send(send, packet)
+
       if arr[0] == "hit":
           game = readint(mes)
           pn = readint(mes)
