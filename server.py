@@ -210,7 +210,7 @@ def server(port):
                     packet = Packet()
                     packet.clear()
                     packet.write(2, 'ends')
-                    packet.send(i.oth(player_id), packet)
+                    packet.send(games[i].oth(player_id), packet)
 
             self.close()
 
