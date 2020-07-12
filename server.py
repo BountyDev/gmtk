@@ -17,7 +17,7 @@ def server(port):
     arr = {}
     games = {}
     un = {}
-    wpon = ""
+    wpon = []
 
     #Constants
     BIT = 0
@@ -55,6 +55,7 @@ def server(port):
           pid = readint(mes)
           weapon = readstring(mes)
           queue.append(pid)
+          wpon.append(weapon)
           print("Entered Queue")
 
           if len(queue) == 2:
@@ -67,13 +68,12 @@ def server(port):
                 packet.write(2, 'queue')
                 packet.write(3, len(games))
                 packet.write(3, num)
-                packet.write(2, wpon)
+                for i in wpon:
+                    packet.write(2, i)
                 packet.send(ids[i], packet)
                 num+=1
               queue.clear()
-              games["game" + str(len(games))] = Match(new[0], new[1], ids[new[0]], ids[new[1]],weapon, wpon)
-          else:
-              wpon = weapon
+              games["game" + str(len(games))] = Match(new[0], new[1], ids[new[0]], ids[new[1]],weapon, weapon)
 
 
       if arr[0] == "leave":
