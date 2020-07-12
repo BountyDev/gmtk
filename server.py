@@ -203,11 +203,14 @@ def server(port):
             ids.pop(player_id)
             un.pop(player_id)
 
-            packet = Packet()
+            for i in games:
+                check = i.check(player_id)
 
-            packet.clear()
-            packet.write(2, 'ends')
-            packet.send(i, packet)
+                if check:
+                    packet = Packet()
+                    packet.clear()
+                    packet.write(2, 'ends')
+                    packet.send(i.oth(player_id), packet)
 
             self.close()
 

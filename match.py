@@ -47,3 +47,15 @@ class Match():
                 return True
             else:
                 return False
+
+    def check(self, pid):
+        if pid == self.id1 or pid == self.id2:
+            return True
+        else:
+            return False
+
+    def other(self, pid):
+        if pid == self.id1:
+            return self.conn2
+        else:
+            return self.conn1
