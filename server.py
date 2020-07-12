@@ -149,6 +149,9 @@ def server(port):
               packet.write(2, type)
               packet.send(send, packet)
 
+      if packet.Buffer > 0:
+          rec(mes)
+
     class MainServer(asyncore.dispatcher):
       def __init__(self, port):
         asyncore.dispatcher.__init__(self)
