@@ -87,17 +87,17 @@ def server(port):
           match = readint(mes)
           pn = readint(mes)
           #xs = readint(mes)
+          if "game"+str(match) in games:
+              cur = games["game" + str(match)]
+              cur.update(xx,yy,pn)
 
-          cur = games["game" + str(match)]
-          cur.update(xx,yy,pn)
+              send = cur.grab(pn)
 
-          send = cur.grab(pn)
-
-          packet.clear()
-          packet.write(2, 'move')
-          packet.write(3, xx)
-          packet.write(3, yy)
-          packet.send(send, packet)
+              packet.clear()
+              packet.write(2, 'move')
+              packet.write(3, xx)
+              packet.write(3, yy)
+              packet.send(send, packet)
 
       if arr[0] == "hit":
           game = readint(mes)
@@ -136,18 +136,18 @@ def server(port):
           match = readint(mes)
           pn = readint(mes)
           type = readstring(mes)
+          if "game"+str(match) in games:
+              cur = games["game" + str(match)]
 
-          cur = games["game" + str(match)]
+              send = cur.grab(pn)
 
-          send = cur.grab(pn)
-
-          packet.clear()
-          packet.write(2, 'shoot')
-          packet.write(3, xx)
-          packet.write(3, yy)
-          packet.write(3, dir)
-          packet.write(2, type)
-          packet.send(send, packet)
+              packet.clear()
+              packet.write(2, 'shoot')
+              packet.write(3, xx)
+              packet.write(3, yy)
+              packet.write(3, dir)
+              packet.write(2, type)
+              packet.send(send, packet)
 
     class MainServer(asyncore.dispatcher):
       def __init__(self, port):
