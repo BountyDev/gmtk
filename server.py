@@ -216,6 +216,7 @@ def server(port):
                     packet.clear()
                     packet.write(2, 'ends')
                     packet.send(games[i].oth(player_id), packet)
+                    games.delete(i)
 
             self.close()
 
