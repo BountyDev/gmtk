@@ -116,6 +116,19 @@ def server(port):
                   packet.send(i, packet)
               games.pop("game"+str(game))
 
+      if arr[0] == "end":
+          game = readint()
+
+          cur = games["game" + str(game)]
+
+          players = cur.list()
+
+          for i in players:
+              packet.clear()
+              packet.write(2, 'end')
+              packet.send(i, packet)
+          games.pop("game"+str(game))
+
       if arr[0] == "shoot":
           xx = readint(mes)
           yy = readint(mes)
