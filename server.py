@@ -92,7 +92,8 @@ def server(port):
 
       if arr[0] == "leave":
           pid = readint(mes)
-          queue.remove(pid)
+          if pid in queue:
+              queue.remove(pid)
 
       if arr[0] == "move":
           xx = readint(mes)
