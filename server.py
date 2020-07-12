@@ -61,6 +61,7 @@ def server(port):
           if len(queue) == 2:
               print("Match found")
               new = {}
+              random.seed(time.time())
               map = random.randint(0,2)
               rule = random.randint(0,2)
               num = 0
@@ -224,7 +225,7 @@ def server(port):
             un.pop(player_id)
 
             if player_id in queue:
-                queue.delete(player_id)
+                queue.remove(player_id)
             num = ""
             for i in games:
                 check = games[i].check(player_id)
