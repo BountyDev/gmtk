@@ -188,7 +188,7 @@ def server(port):
       def __init__(self, port):
         asyncore.dispatcher.__init__(self)
         self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.bind(('134.122.20.140', port))
+        self.bind(('64.227.38.201', port))
         self.listen(50)
         print("Server is up")
       def handle_accept(self):
