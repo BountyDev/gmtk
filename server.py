@@ -223,7 +223,7 @@ def server(port):
 
             if player_id in queue:
                 queue.delete(player_id)
-
+            num = ""
             for i in games:
                 check = games[i].check(player_id)
 
@@ -232,7 +232,8 @@ def server(port):
                     packet.clear()
                     packet.write(2, 'ends')
                     packet.send(games[i].oth(player_id), packet)
-                    games.pop(i)
+                    num = i
+            games.pop(i)
 
             self.close()
 
