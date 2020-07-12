@@ -62,7 +62,7 @@ def server(port):
               print("Match found")
               new = {}
               map = random.randint(0,2)
-              rule = 0
+              rule = random.randint(0,2)
               num = 0
               for i in queue:
                 new[num] = i
