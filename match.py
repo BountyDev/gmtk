@@ -1,5 +1,5 @@
 class Match():
-    def __init__(self, id1, id2, con1, con2):
+    def __init__(self, id1, id2, con1, con2, gun1, gun2):
         self.x1 = 0
         self.x2 = 0
         self.y1 = 0
@@ -8,8 +8,8 @@ class Match():
         self.hp1 = 100
         self.hp2 = 100
 
-        self.gun1 = "default"
-        self.gun2 = "default"
+        self.gun1 = gun1
+        self.gun2 = gun2
 
         self.id1 = id1
         self.id2 = id2
