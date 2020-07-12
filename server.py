@@ -62,6 +62,7 @@ def server(port):
               print("Match found")
               new = {}
               map = random.randint(0,2)
+              rule = 0
               num = 0
               for i in queue:
                 new[num] = i
@@ -70,6 +71,7 @@ def server(port):
                 packet.write(3, len(games))
                 packet.write(3, num)
                 packet.write(3, map)
+                packet.write(3, rule)
                 for l in wpon:
                     packet.write(2, l)
                 packet.send(ids[i], packet)
@@ -185,7 +187,7 @@ def server(port):
         asyncore.dispatcher.__init__(self)
         self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
         self.bind(('134.122.20.140', port))
-        self.listen(10)
+        self.listen(50)
         print("Server is up")
       def handle_accept(self):
         conn, addr = self.accept()
