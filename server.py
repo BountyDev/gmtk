@@ -196,7 +196,11 @@ def server(port):
         print ('Connection address:' + addr[0] + " " + str(addr[1]))
         conn.setsockopt(socket.SOL_TCP, socket.TCP_NODELAY, 1)
         outgoing.append(conn)
-        playerid = len(ids)+1
+
+        newid = random.randint(1,99999)
+        while newid in un:
+            newid = random.randint(1,99999)
+        playerid = newid
         conns[conn] = playerid
         update = ['id update', playerid]
         ids[playerid] = conn
