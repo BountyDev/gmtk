@@ -103,7 +103,7 @@ def server(port):
           game = readint(mes)
           pn = readint(mes)
           hit = readint(mes)
-
+          print(hit)
           cur = games["game" + str(game)]
           chck = cur.hit(pn, hit)
 
