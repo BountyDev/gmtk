@@ -68,8 +68,8 @@ def server(port):
                 packet.write(2, 'queue')
                 packet.write(3, len(games))
                 packet.write(3, num)
-                for i in wpon:
-                    packet.write(2, i)
+                for l in wpon:
+                    packet.write(2, l)
                 packet.send(ids[i], packet)
                 num+=1
               queue.clear()
