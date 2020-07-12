@@ -233,7 +233,7 @@ def server(port):
                     packet.write(2, 'ends')
                     packet.send(games[i].oth(player_id), packet)
                     num = i
-            games.pop(i)
+            games.pop(num)
 
             self.close()
 
