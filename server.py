@@ -119,15 +119,16 @@ def server(port):
       if arr[0] == "end":
           game = readint(mes)
 
-          cur = games["game" + str(game)]
+          if "game" + str(game) in games:
+              cur = games["game" + str(game)]
 
-          players = cur.list()
+              players = cur.list()
 
-          for i in players:
-              packet.clear()
-              packet.write(2, 'end')
-              packet.send(i, packet)
-          games.pop("game"+str(game))
+              for i in players:
+                  packet.clear()
+                  packet.write(2, 'end')
+                  packet.send(i, packet)
+              games.pop("game"+str(game))
 
       if arr[0] == "shoot":
           print("W")
