@@ -61,6 +61,7 @@ def server(port):
           if len(queue) == 2:
               print("Match found")
               new = {}
+              map = random.randint(0,2)
               num = 0
               for i in queue:
                 new[num] = i
@@ -68,6 +69,7 @@ def server(port):
                 packet.write(2, 'queue')
                 packet.write(3, len(games))
                 packet.write(3, num)
+                packet.write(3, map)
                 for l in wpon:
                     packet.write(2, l)
                 packet.send(ids[i], packet)
