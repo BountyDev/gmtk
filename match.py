@@ -54,7 +54,7 @@ class Match():
         else:
             return False
 
-    def other(self, pid):
+    def oth(self, pid):
         if pid == self.id1:
             return self.conn2
         else:
