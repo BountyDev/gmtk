@@ -76,6 +76,14 @@ def server(port):
               games["game" + str(len(games))] = Match(new[0], new[1], ids[new[0]], ids[new[1]],weapon, weapon)
 
 
+      if arr[0] == "ping":
+          pid = readint(mes)
+
+          packet.clear()
+          packet.write(2,"ping")
+          packet.write(3, time.time())
+          packet.send(ids[pid], packet)
+
       if arr[0] == "leave":
           pid = readint(mes)
           queue.remove(pid)
@@ -131,7 +139,6 @@ def server(port):
               games.pop("game"+str(game))
 
       if arr[0] == "shoot":
-          print("W")
           xx = readint(mes)
           yy = readint(mes)
           dir = readint(mes)
@@ -196,6 +203,10 @@ def server(port):
             un.pop(player_id)
 
             packet = Packet()
+
+            packet.clear()
+            packet.write(2, 'ends')
+            packet.send(i, packet)
 
             self.close()
 
