@@ -205,6 +205,9 @@ def server(port):
             ids.pop(player_id)
             un.pop(player_id)
 
+            if player_id in queue:
+                queue.delete(player_id)
+
             for i in games:
                 check = games[i].check(player_id)
 
