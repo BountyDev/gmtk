@@ -51,7 +51,7 @@ def server(port):
       global mes
       mes = message
       packet = Packet()
-      if len(mes) == 0:
+      if len(mes) != 0:
           arr[0] = readstring(mes)
 
           if arr[0] == "queue":
